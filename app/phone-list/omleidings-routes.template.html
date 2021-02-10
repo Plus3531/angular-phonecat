@@ -1,27 +1,37 @@
 <form name="omleidingsRoutesController.omleidingsRouteForm" ng-submit="omleidingsRoutesController.submitForm()" novalidate>
-    <button ng-click="omleidingsRoutesController.addRoute()">route toevoegen</button>
+    <button ng-click="omleidingsRoutesController.addRoute()">Route toevoegen</button>
+	<button ng-click="omleidingsRoutesController.addDRPT(omleidingsRoutesController.route.index)" ng-disabled="omleidingsRoutesController.route.index < 0" >Nieuw DRPT</button>
     <table>
         <thead>
             <tr>
+				<!-- select radio -->
                 <th>&nbsp;</th>
                 <th>VG pad</th>
                 <th>+Tijd</th>
-                <th></th>
+				<!-- volgnummer -->
+                <th>&nbsp;</th>
                 <th>Drpg</th>
                 <th>Act</th>
                 <th>Tijd</th>
                 <th>Spoor</th>
                 <th>Via</th>
+				<!-- editing buttons -->
+				<th>&nbsp;</th>
             </tr>
         </thead>
         <tbody class="mark-when-invalid" ng-repeat="omleidingsRoute in omleidingsRoutesController.goederenTreinRoutes">
             <tr ng-repeat="omleidActiviteit in omleidingsRoute.omleidactiviteiten">
                 <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
-                    <input ng-change="omleidingsRoutesController.routeSelected($parent.$parent.$index)" ng-model="omleidingsRoutesController.route.index" value="{{$parent.$parent.$index}}" type="radio" id="radio_route_{{$parent.$parent.$index}}" name="omleidingsroute_{{$parent.$parent.$index}}">
+                    <input ng-change="omleidingsRoutesController.routeSelected($parent.$parent.$index)"
+						ng-model="omleidingsRoutesController.route.index"
+						ng-value="$parent.$parent.$index"
+						type="radio"
+						id="radio_route_{{$parent.$parent.$index}}"
+						name="omleidingsroute-radio">
 
                 </td>
                 <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
-                    {{omleidingsRoute.padindicator}}
+					<input name="pad_{{$parent.$parent.$index}}{{$index}}" id="pad_{{$parent.$parent.$index}}{{$index}}" ng-model="omleidingsRoute.padindicator" type="checkbox">
                 </td>
                 <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
                     {{omleidingsRoute.extraRijtijd}}
@@ -33,7 +43,11 @@
                     <input style="width: 50px" ng-model="omleidActiviteit.dienstregelpuntCode" type="text" required></input>
                 </td>
                 <td>
-                    {{omleidActiviteit.activiteitSoort}}
+					<select name="act_{{$parent.$index}}{{$index}}" id="act_{{$parent.$index}}{{$index}}" ng-model="omleidActiviteit.activiteitSoort">
+						<option value="A">A</option>
+						<option value="V">V</option>
+						<option value="D">D</option>
+					  </select>
                 </td>
                 <td>
                     <input
@@ -46,15 +60,44 @@
 						required></input>
                 </td>
                 <td>
-                    {{omleidActiviteit.spoor}}
+                    <input
+						id="spoor_{{$parent.$index}}{{$index}}"
+                        name="spoor_{{$parent.$index}}{{$index}}"
+						style="width: 40px"
+						ng-change="omleidingsRoutesController.checkBupTijd(omleidActiviteit.spoor, 'spoor_{{$parent.$index}}{{$index}}')"
+						ng-model="omleidActiviteit.spoor"
+						type="text"></input>
                 </td>
                 <td>
-                    {{omleidActiviteit.via}}
+					<input
+					id="via_{{$parent.$index}}{{$index}}"
+					name="via_{{$parent.$index}}{{$index}}"
+					style="width: 80px"
+					ng-change="omleidingsRoutesController.checkBupTijd(omleidActiviteit.via, 'via_{{$parent.$index}}{{$index}}')"
+					ng-model="omleidActiviteit.via"
+					type="text"></input>
+                </td>
+				<td>
+					<span style="cursor: pointer;"
+						id="up_{{$parent.$index}}{{$index}}"
+						name="up_{{$parent.$index}}{{$index}}"
+						ng-click="omleidingsRoutesController.moveUp($parent.$index, $index)">&#8679;</span>
+					<span style="cursor: pointer;"
+						id="down_{{$parent.$index}}{{$index}}"
+						name="down_{{$parent.$index}}{{$index}}"
+						ng-click="omleidingsRoutesController.moveDown($parent.$index, $index)">&#8681;</span>
+					<span style="cursor: pointer;"
+						id="up_{{$parent.$index}}{{$index}}"
+						name="up_{{$parent.$index}}{{$index}}"
+						ng-click="omleidingsRoutesController.deleteDRPG($parent.$index, $index)">&#10006;</span>
+						<!-- &#9747; -->
                 </td>
 
             </tr>
         </tbody>
     </table>
-    <button type="submit" class="btn btn-primary" ng-disabled="omleidingsRoutesController.omleidingsRouteForm.$invalid">Opslaan</button>
+    <button type="submit"
+	ng-click="omleidingsRoutesController.save()"
+	ng-disabled="omleidingsRoutesController.omleidingsRouteForm.$invalid">Opslaan</button>
 </form>
 <button ng-click="omleidingsRoutesController.checkIt()">check</button>
