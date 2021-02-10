@@ -1,0 +1,567 @@
+{
+    "id": "1",
+    "maatregel": "99.001",
+    "type": "VSM",
+    "versie": "1",
+    "status": "Concept",
+    "geldigheidVanaf": "2017-04-08T00:00:00Z",
+    "tijdvak": "Dal",
+    "stremming": {
+        "code": "PBS",
+        "naam": "Partiële Baanvakstremming",
+        "ingangsdatum": "2017-02-23T10:16:38.135Z",
+        "einddatum": "0001-01-01T00:00:00"
+    },
+    "post": "",
+    "begrenzingspuntUitval": "",
+    "verstoordGebied": {
+        "dienstregelpunten": [{
+                "code": "Ut",
+                "volgnummer": 1
+            }, {
+                "code": "Htn",
+                "volgnummer": 2
+            }
+        ]
+    },
+    "wachtbuffer": [{
+            "dienstregelpunten": [{
+                    "code": "Gdm",
+                    "volgnummer": 1
+                }, {
+                    "code": "Ehv",
+                    "volgnummer": 3
+                }
+            ],
+            "treinType": "G"
+        }, {
+            "dienstregelpunten": [{
+                    "code": "Gdm",
+                    "volgnummer": 1
+                }, {
+                    "code": "Mbtwan",
+                    "volgnummer": 2
+                }
+            ],
+            "treinType": "G"
+        }, {
+            "dienstregelpunten": [{
+                    "code": "Hw",
+                    "volgnummer": 1
+                }, {
+                    "code": "Bv",
+                    "volgnummer": 2
+                }
+            ],
+            "treinType": "G"
+        }
+    ],
+    "bijzonderheden": [{
+            "type": "Afwegingen",
+            "omschrijving": "\n            Alle intercity en sprinterseries komen elkaar tegen tussen Utva en Htn(c). Er is gekozen om de serie 3500 te\n            rijden van Ut naar Ht en\n            de serie 800 van Ht naar Ut vanwege meeste reizigers en lange lijnvoering.\n            Een tweede sprinterserie rijden tot Htnc kan niet ivm overkruistijden te Htnc.\n\n            Ut\n            800 Keert op spoor 12 op de 303500. Om dit mogelijk te maken moet de 3100 vanaf Mas via buitenspoor en de\n            7400 naar Spw 14\n\n            6100 Opgeheven ivm perronbezetting 2000. Keuze voor 2000 ivm meer reizigers\n\n            Htn(c)\n            16000 keert op zichzelf. 6000 kan niet keren te Htn(c) ivm linkerspoorrijdende 800 serie\n\n            Gdm\n            6000 kan niet beide richtingen op rijden ivm kruisligging met 800. Keert op zichzelf op aankomstspoor 3B\n            16000 ivm kerende 6000 naar spoor 4B (Crossplatform)\n\n            Ht\n            3500 Kan niet rijden ivm kruisligging tussen Htn(c) en Gdma met zichzelf en andere series.\n            Keert ene half uur op vertrekspoor 6A en andere op aankomstspoor =4B, lange kering noodzakelijk in verband\n            met ISIdoornormen.\n            13600 Moet ivm kruisligging en perronbezetting kerende 800 naar spoor 4A via 705B en binnenrijden via CI ivm\n            vertrekkende 3500,\n            3500/3600 spoorwijziging ivm kerende 800 op 4\n\t\t"
+        }, {
+            "type": "Crowd Control",
+            "omschrijving": "Rellen!"
+        }, {
+            "type": "Opstart",
+            "omschrijving": "800 eerst"
+        }, {
+            "type": "Reisinformatie",
+            "omschrijving": 117
+        }
+    ],
+    "omleidingsroute": [{
+            "padindicator": true,
+            "treinType": "G",
+            "extraRijtijd": 90,
+            "omleidactiviteiten": [{
+                    "dienstregelpuntCode": "Bv",
+                    "activiteitSoort": "V",
+                    "bupTijd": "23",
+                    "volgnummer": 1
+                }, {
+                    "dienstregelpuntCode": "Rtd",
+                    "activiteitSoort": "D",
+                    "bupTijd": "00",
+                    "volgnummer": 2
+                }, {
+                    "dienstregelpuntCode": "Kfhn",
+                    "activiteitSoort": "D",
+                    "bupTijd": "23",
+                    "volgnummer": 3
+                }, {
+                    "dienstregelpuntCode": "Mbtwan",
+                    "activiteitSoort": "D",
+                    "bupTijd": "53",
+                    "volgnummer": 4
+                }
+            ]
+        }, {
+            "padindicator": true,
+            "treinType": "G",
+            "extraRijtijd": 90,
+            "omleidactiviteiten": [{
+                    "dienstregelpuntCode": "Mbtwan",
+                    "activiteitSoort": "D",
+                    "bupTijd": "22",
+                    "volgnummer": 1
+                }, {
+                    "dienstregelpuntCode": "Kfhn",
+                    "activiteitSoort": "D",
+                    "bupTijd": "00",
+                    "volgnummer": 2
+                }, {
+                    "dienstregelpuntCode": "Rtd",
+                    "activiteitSoort": "D",
+                    "bupTijd": "22",
+                    "volgnummer": 3
+                }, {
+                    "dienstregelpuntCode": "Bv",
+                    "activiteitSoort": "A",
+                    "bupTijd": "23",
+                    "volgnummer": 4
+                }
+            ]
+        }, {
+            "treinType": "R",
+            "omleidactiviteiten": [{
+                    "volgnummer": 1,
+                    "dienstregelpuntCode": "Ht",
+                    "activiteitSoort": "V",
+                    "bupTijd": "55"
+                }
+            ],
+            "treinserie": {
+                "beginnummer": "2354"
+            },
+            "toelichting": "hiero",
+            "extraRijtijd": 88
+        }
+    ],
+    "reizigersdienst": [{
+            "actieSoort": "Blijft Rijden",
+            "opVan": {
+                "dienstregelpunt": "Ut",
+                "treinserie": {
+                    "beginnummer": "800"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "34",
+                "spoor": "15"
+            },
+            "volgnummer": 1
+        }, {
+            "actieSoort": "Spoorwijziging",
+            "opVan": {
+                "dienstregelpunt": "Ut",
+                "treinserie": {
+                    "beginnummer": "800"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "04",
+                "spoor": "15"
+            },
+            "volgnummer": 2
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Ut",
+                "treinserie": {
+                    "beginnummer": "9800"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "55",
+                "spoor": "20"
+            },
+            "volgnummer": 3
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Ut",
+                "treinserie": {
+                    "beginnummer": "9800"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "25",
+                "spoor": "20"
+            },
+            "volgnummer": 4
+        }, {
+            "actieSoort": "Verleggen",
+            "opVan": {
+                "dienstregelpunt": "Ut",
+                "treinserie": {
+                    "beginnummer": "3000"
+                },
+                "activiteitSoort": "V",
+                "bupTijd": "53",
+                "spoor": "14"
+            },
+            "naar": {
+                "dienstregelpunt": "Db",
+                "activiteitSoort": "D",
+                "bupTijd": "03"
+            },
+            "toelichting": "+1 verleggen Ut-Db",
+            "volgnummer": 5
+        }, {
+            "actieSoort": "Verleggen",
+            "opVan": {
+                "dienstregelpunt": "Ut",
+                "treinserie": {
+                    "beginnummer": "3000"
+                },
+                "activiteitSoort": "V",
+                "bupTijd": "23",
+                "spoor": "14"
+            },
+            "naar": {
+                "dienstregelpunt": "Db",
+                "activiteitSoort": "D",
+                "bupTijd": "33"
+            },
+            "toelichting": "+1 verleggen Ut-Db",
+            "volgnummer": 6
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Htn",
+                "treinserie": {
+                    "beginnummer": "6000"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "55",
+                "spoor": "2"
+            },
+            "volgnummer": 7
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Htn",
+                "treinserie": {
+                    "beginnummer": "6000"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "25",
+                "spoor": "2"
+            },
+            "volgnummer": 8
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Gdm",
+                "treinserie": {
+                    "beginnummer": "16000"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "48",
+                "spoor": "4B"
+            },
+            "volgnummer": 9
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Gdm",
+                "treinserie": {
+                    "beginnummer": "16000"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "18",
+                "spoor": "4B"
+            },
+            "volgnummer": 10
+        }, {
+            "actieSoort": "Spoorwijziging",
+            "opVan": {
+                "dienstregelpunt": "Gdm",
+                "treinserie": {
+                    "beginnummer": "6000"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "51",
+                "spoor": "3A"
+            },
+            "volgnummer": 11
+        }, {
+            "actieSoort": "Spoorwijziging",
+            "opVan": {
+                "dienstregelpunt": "Gdm",
+                "treinserie": {
+                    "beginnummer": "6000"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "21",
+                "spoor": "3A"
+            },
+            "volgnummer": 12
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Ht",
+                "treinserie": {
+                    "beginnummer": "3500"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "37",
+                "spoor": "6B"
+            },
+            "volgnummer": 13
+        }, {
+            "actieSoort": "Keren",
+            "opVan": {
+                "dienstregelpunt": "Ht",
+                "treinserie": {
+                    "beginnummer": "3500"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "07",
+                "spoor": "6B"
+            },
+            "volgnummer": 14
+        }, {
+            "actieSoort": "Spoorwijziging",
+            "opVan": {
+                "dienstregelpunt": "Ht",
+                "treinserie": {
+                    "beginnummer": "800"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "35",
+                "spoor": "6A"
+            },
+            "volgnummer": 15
+        }, {
+            "actieSoort": "Spoorwijziging",
+            "opVan": {
+                "dienstregelpunt": "Ht",
+                "treinserie": {
+                    "beginnummer": "800"
+                },
+                "activiteitSoort": "A",
+                "bupTijd": "05",
+                "spoor": "6A"
+            },
+            "volgnummer": 16
+        }, {
+            "actieSoort": "Verleggen",
+            "opVan": {
+                "dienstregelpunt": "Ht",
+                "treinserie": {
+                    "beginnummer": "800"
+                },
+                "activiteitSoort": "V",
+                "bupTijd": "53",
+                "spoor": "4B"
+            },
+            "naar": {
+                "dienstregelpunt": "Ut",
+                "activiteitSoort": "A",
+                "bupTijd": "21"
+            },
+            "toelichting": "verleggen +2 Ht-Ut",
+            "volgnummer": 17
+        }, {
+            "actieSoort": "Verleggen",
+            "opVan": {
+                "dienstregelpunt": "Ht",
+                "treinserie": {
+                    "beginnummer": "800"
+                },
+                "activiteitSoort": "V",
+                "bupTijd": "23",
+                "spoor": "4B"
+            },
+            "naar": {
+                "dienstregelpunt": "Ut",
+                "activiteitSoort": "A",
+                "bupTijd": "51"
+            },
+            "toelichting": "verleggen +2 Ht-Ut",
+            "volgnummer": 18
+        }
+    ],
+    "goederenpadverstoordgebied": [{
+            "activiteit": [{
+                    "dienstregelpuntCode": "Ut",
+                    "activiteitSoort": "D",
+                    "bupTijd": "22",
+                    "volgnummer": 1
+                }, {
+                    "dienstregelpuntCode": "Htn",
+                    "activiteitSoort": "D",
+                    "bupTijd": "33",
+                    "volgnummer": 2
+                }, {
+                    "dienstregelpuntCode": "Gdm",
+                    "activiteitSoort": "D",
+                    "bupTijd": "45",
+                    "volgnummer": 3
+                }
+            ]
+        }, {
+            "activiteit": [{
+                    "dienstregelpuntCode": "Gdm",
+                    "activiteitSoort": "D",
+                    "bupTijd": "45",
+                    "volgnummer": 3
+                }, {
+                    "dienstregelpuntCode": "Htn",
+                    "activiteitSoort": "D",
+                    "bupTijd": "33",
+                    "volgnummer": 2
+                }, {
+                    "dienstregelpuntCode": "Ut",
+                    "activiteitSoort": "D",
+                    "bupTijd": "22",
+                    "volgnummer": 1
+                }
+            ]
+        }, {
+            "activiteit": [{
+                    "dienstregelpuntCode": "Gdm",
+                    "activiteitSoort": "V",
+                    "bupTijd": "20",
+                    "volgnummer": 1,
+                    "spoor": "1"
+                }, {
+                    "dienstregelpuntCode": "Htn",
+                    "activiteitSoort": "A",
+                    "bupTijd": "31",
+                    "volgnummer": 2,
+                    "spoor": "2"
+                }, {
+                    "dienstregelpuntCode": "Htn",
+                    "activiteitSoort": "V",
+                    "bupTijd": "33",
+                    "volgnummer": 3,
+                    "spoor": "3"
+                }, {
+                    "dienstregelpuntCode": "Ut",
+                    "activiteitSoort": "D",
+                    "bupTijd": "40",
+                    "volgnummer": 4,
+                    "spoor": "27a"
+                }
+            ]
+        }
+    ],
+    "treinwijzigingen": [{
+            "treinserie": {
+                "beginnummer": "3500"
+            },
+            "richting": "v.v.",
+            "bupTijd": "40",
+            "opDienstregelpunt": "Shl",
+            "naarDienstregelpunt": "Ht",
+            "actiesoort": "Opheffen",
+            "patroonBeweging": "Uur"
+        }, {
+            "treinserie": {
+                "beginnummer": "6000"
+            },
+            "richting": "v.v.",
+            "bupTijd": "50",
+            "opDienstregelpunt": "Ut",
+            "naarDienstregelpunt": "Htn",
+            "actiesoort": "Opheffen",
+            "patroonBeweging": "Uur"
+        }, {
+            "treinserie": {
+                "beginnummer": "6100"
+            },
+            "richting": "v.v.",
+            "bupTijd": "1/31",
+            "opDienstregelpunt": "Wd",
+            "naarDienstregelpunt": "Ut",
+            "actiesoort": "Opheffen",
+            "patroonBeweging": "1/2 Uur"
+        }, {
+            "treinserie": {
+                "beginnummer": "16000"
+            },
+            "richting": "v.v.",
+            "bupTijd": "2",
+            "opDienstregelpunt": "Ut",
+            "naarDienstregelpunt": "Gdm",
+            "actiesoort": "Opheffen",
+            "patroonBeweging": "Uur"
+        }
+    ],
+    "alternatiefVervoer": [{
+            "vanDienstregelpunt": "Ut",
+            "naarDienstregelpunt": "Htn",
+            "vervoersmodaliteit": "Bus"
+        }
+    ],
+    "klantwaardeNs": {
+        "totaal": 0,
+        "klantwaardeNsRegels": [{
+                "themaAfwegingskader": "Kern van de maatregel",
+                "themaWegingsfactor": "omleiden",
+                "icWaarde": 0,
+                "icFactor": 1,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 1,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Kern van de maatregel",
+                "themaWegingsfactor": "omreizen",
+                "icWaarde": 0,
+                "icFactor": 2,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 1,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Kern van de maatregel",
+                "themaWegingsfactor": "alternatief product",
+                "icWaarde": 0,
+                "icFactor": 5,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 5,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Reistijd",
+                "themaWegingsfactor": "extra reistijd max 60 minuten",
+                "icWaarde": 0,
+                "icFactor": 3,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 3,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Reistijd",
+                "themaWegingsfactor": "extra wachttijd max 15 minuten",
+                "icWaarde": 0,
+                "icFactor": 3,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 3,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Reistijd",
+                "themaWegingsfactor": "max 2 overstappen",
+                "icWaarde": 0,
+                "icFactor": 3,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 3,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Handelingsperspectief",
+                "themaWegingsfactor": "Klant heeft mogelijkheid om te voorkomen in een stremming terecht te komen\n\t\t\t",
+                "icWaarde": 0,
+                "icFactor": 4,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 1,
+                "totaal": 0
+            }, {
+                "themaAfwegingskader": "Toekomstperspectief maatregel",
+                "themaWegingsfactor": "De maatregel voldoet aan het afwegingskader. NSR is tevreden mer de maatregel\n                gegeven de beschikare infra structuur of is absoluut ontevreden met de maatregel, maar er zijn geen\n                andere mogelijkheden.\n\t\t\t",
+                "icWaarde": 0,
+                "icFactor": 5,
+                "sprinterWaarde": 0,
+                "sprinterFactor": 5,
+                "totaal": 0
+            }
+        ]
+    },
+    "situatieOmschrijving": "Utrecht -Houten Partiële baanvakstremming klanthinder 2",
+    "regeling": "99"
+}

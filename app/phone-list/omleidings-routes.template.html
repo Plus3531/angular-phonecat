@@ -1,0 +1,60 @@
+<form name="omleidingsRoutesController.omleidingsRouteForm" ng-submit="omleidingsRoutesController.submitForm()" novalidate>
+    <button ng-click="omleidingsRoutesController.addRoute()">route toevoegen</button>
+    <table>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>VG pad</th>
+                <th>+Tijd</th>
+                <th></th>
+                <th>Drpg</th>
+                <th>Act</th>
+                <th>Tijd</th>
+                <th>Spoor</th>
+                <th>Via</th>
+            </tr>
+        </thead>
+        <tbody class="mark-when-invalid" ng-repeat="omleidingsRoute in omleidingsRoutesController.goederenTreinRoutes">
+            <tr ng-repeat="omleidActiviteit in omleidingsRoute.omleidactiviteiten">
+                <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
+                    <input ng-change="omleidingsRoutesController.routeSelected($parent.$parent.$index)" ng-model="omleidingsRoutesController.route.index" value="{{$parent.$parent.$index}}" type="radio" id="radio_route_{{$parent.$parent.$index}}" name="omleidingsroute_{{$parent.$parent.$index}}">
+
+                </td>
+                <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
+                    {{omleidingsRoute.padindicator}}
+                </td>
+                <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
+                    {{omleidingsRoute.extraRijtijd}}
+                </td>
+                <td>
+                    {{omleidActiviteit.volgnummer}}
+                </td>
+                <td>
+                    <input style="width: 50px" ng-model="omleidActiviteit.dienstregelpuntCode" type="text" required></input>
+                </td>
+                <td>
+                    {{omleidActiviteit.activiteitSoort}}
+                </td>
+                <td>
+                    <input
+						id="bupTijd_{{$parent.$index}}{{$index}}"
+                        name="bupTijd_{{$parent.$index}}{{$index}}"
+						style="width: 30px"
+						ng-change="omleidingsRoutesController.checkBupTijd(omleidActiviteit.bupTijd, 'bupTijd_{{$parent.$index}}{{$index}}')"
+						ng-model="omleidActiviteit.bupTijd"
+						type="text"
+						required></input>
+                </td>
+                <td>
+                    {{omleidActiviteit.spoor}}
+                </td>
+                <td>
+                    {{omleidActiviteit.via}}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary" ng-disabled="omleidingsRoutesController.omleidingsRouteForm.$invalid">Opslaan</button>
+</form>
+<button ng-click="omleidingsRoutesController.checkIt()">check</button>

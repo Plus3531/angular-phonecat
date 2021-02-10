@@ -5,10 +5,10 @@ angular.
   module('phoneList').
   component('phoneList', {
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: ['Phone',
-      function PhoneListController(Phone) {
+    controller: ['Phone', 'Vsm',
+      function PhoneListController(Phone, Vsm) {
         this.phones = Phone.query();
-        this.orderProp = 'age';
+		this.vsm = Vsm.query();
       }
     ]
   });

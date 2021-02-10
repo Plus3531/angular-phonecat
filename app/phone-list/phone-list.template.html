@@ -4,7 +4,7 @@
       <!--Sidebar content-->
 
       <p>
-        Search:
+        Search and find:
         <input ng-model="$ctrl.query" />
       </p>
 
@@ -18,9 +18,9 @@
 
     </div>
     <div class="col-md-10">
-      <!--Body content-->
-
-      <ul class="phones">
+    
+	<vsm></vsm>
+      <!-- <ul class="phones">
         <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp"
             class="thumbnail phone-list-item">
           <a href="#!/phones/{{phone.id}}" class="thumb">
@@ -29,7 +29,7 @@
           <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
           <p>{{phone.snippet}}</p>
         </li>
-      </ul>
+      </ul> -->
 
     </div>
   </div>

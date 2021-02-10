@@ -1,93 +1,40 @@
-body {
-  padding: 20px;
+.omleidroute-container {
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-  border-bottom: 1px solid gray;
-  margin-top: 0;
+.omleidroute-row {
+    display: flex;
+    flex-direction: row;
 }
 
-/* View: Phone list */
-.phones {
-  list-style: none;
+.omleidroute-drgp {
+    display: flex;
+    flex-direction: column;
 }
 
-.phones li {
-  clear: both;
-  height: 115px;
-  padding-top: 15px;
+.omleidroute-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
-.thumb {
-  float: left;
-  height: 100px;
-  margin: -0.5em 1em 1.5em 0;
-  padding-bottom: 1em;
-  width: 100px;
+.flex-grid {
+    display: flex;
 }
 
-/* View: Phone detail */
-.phone {
-  background-color: white;
-  display: none;
-  float: left;
-  height: 400px;
-  margin-bottom: 2em;
-  margin-right: 3em;
-  padding: 2em;
-  width: 400px;
+.col {
+    flex: 1;
 }
 
-.phone:first-child {
-  display: block;
+.drgp-required-field {
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(255, 136, 6, 0.5);
+    -moz-box-shadow: 0px 0px 2px 2px rgba(255, 136, 6, 0.5);
+    box-shadow: 0px 0px 2px 2px rgba(255, 136, 6, 0.5);
 }
 
-.phone-images {
-  background-color: white;
-  float: left;
-  height: 450px;
-  overflow: hidden;
-  position: relative;
-  width: 450px;
-}
-
-.phone-thumbs {
-  list-style: none;
-  margin: 0;
-}
-
-.phone-thumbs img {
-  height: 100px;
-  padding: 1em;
-  width: 100px;
-}
-
-.phone-thumbs li {
-  background-color: white;
-  border: 1px solid black;
-  cursor: pointer;
-  display: inline-block;
-  margin: 1em;
-}
-
-.specs {
-  clear: both;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.specs dt {
-  font-weight: bold;
-}
-
-.specs > li {
-  display: inline-block;
-  vertical-align: top;
-  width: 200px;
-}
-
-.specs > li > span {
-  font-size: 1.2em;
-  font-weight: bold;
+.mark-when-invalid input.ng-invalid {
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(255, 136, 6, 0.5);
+    -moz-box-shadow: 0px 0px 2px 2px rgba(255, 136, 6, 0.5);
+    box-shadow: 0px 0px 2px 2px rgba(255, 136, 6, 0.5);
 }
