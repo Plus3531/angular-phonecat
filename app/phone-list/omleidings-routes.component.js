@@ -51,11 +51,8 @@ angular.module('phoneList').
 						}
 						return acc;
 					}, []);
-					if (this.goederenTreinRoutes.length === 0) {
-						this.route.index = -1;
-					} else {
-						this.route.index = 0;
-					}
+					this.route.index = this.goederenTreinRoutes.length === 0 ? -1 : 1;
+
 				} else {
 					const deletedOne = this.goederenTreinRoutes[idx1].omleidactiviteiten.reduce((acc, cur, idx) => {
 						if (idx !== idx2) {
@@ -107,7 +104,7 @@ angular.module('phoneList').
 				});
 				this.route.index = l - 1;
 			};
-			
+
 			this.addDRPT = (index) => {
 				const maxNo = this.goederenTreinRoutes[index].omleidactiviteiten.reduce((acc, cur) => {
 					acc = cur.volgnummer > acc ? cur.volgnummer : acc;
