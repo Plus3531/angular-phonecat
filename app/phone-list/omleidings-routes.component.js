@@ -17,6 +17,7 @@ function setSequenceNos(omleidactiviteiten) {
 		return acc;
 	}, []);
 }
+const getDefaultRouteIndex = (routes) => routes && routes.length > 0 ? 0 : -1;
 
 angular.module('phoneList').
 	component('omleidingsRoutes', {
@@ -24,6 +25,7 @@ angular.module('phoneList').
 
 		//value="$parent.$index" ng-change="omleidingsRoutesController.routeSelected(args)"  ng-model="omleidingsRoutesController.route.index"
 		controller: function OmleidingsRoutesController() {
+
 			this.save = () => {
 				console.log(JSON.stringify(this.goederenTreinRoutes));
 			};
@@ -51,7 +53,7 @@ angular.module('phoneList').
 						}
 						return acc;
 					}, []);
-					this.route.index = this.goederenTreinRoutes.length === 0 ? -1 : 1;
+					this.route.index = getDefaultRouteIndex(this.goederenTreinRoutes);
 
 				} else {
 					const deletedOne = this.goederenTreinRoutes[idx1].omleidactiviteiten.reduce((acc, cur, idx) => {
@@ -66,14 +68,24 @@ angular.module('phoneList').
 
 			this.checkBupTijd = (value, elementName) => {
 				const validityMsg = 'Tijd is niet in minuten tussen 0 en 59.';
-				let valid = true;
-				const integer = parseInt(value, 10);
-				if (!integer && integer !== 0) {
-					valid = false;
-				} else if (integer < 0 || integer > 59) {
-					valid = false;
+				const isInvalid = () => false;
+				const checkValidity = (input) => {
+					const parts = value.split('/');
+					return parts.reduce((acc, cur) => {
+						//const w = /^[1-5]?[0-9]$/.test(cur);
+						const w = /^[1-5]?[0-9]$|^0[0-9]?$/.test(cur);
+
+						const valid = (!w && cur !== '00') ? false : true;
+						acc = acc ? valid : false;
+						return acc;
+					}, true);
+				};
+
+				const func = value ? checkValidity : isInvalid;
+				this.omleidingsRouteForm[elementName].$setValidity(validityMsg, func(value));
+				if (this.isValidBinding) {
+					this.isValidBinding()({valid: !this.omleidingsRouteForm.$invalid});
 				}
-				this.omleidingsRouteForm[elementName].$setValidity(validityMsg, valid);
 			}
 			this.routeSelected = (args) => {
 				console.log(`changed: ${args}, this.route.index: ${this.route.index}`);
@@ -82,15 +94,15 @@ angular.module('phoneList').
 				console.log(JSON.stringify(this.goederenTreinRoutes));
 			};
 			this.$onInit = () => {
-				this.route = {index: 0};
+
 			};
 			this.$onChanges = (changes) => {
 				if (changes.omleidingsRoutes.currentValue) {
 					this.goederenTreinRoutes = changes.omleidingsRoutes.currentValue.filter(r => r.treinType === 'G');
-
+					this.route = {index: getDefaultRouteIndex(this.goederenTreinRoutes)};
 				};
 			};
-			this.addRoute = (index) => {
+			this.addRoute = () => {
 				const l = this.goederenTreinRoutes.push({
 					padindicator: true,
 					treinType: 'G',
@@ -119,7 +131,8 @@ angular.module('phoneList').
 			}
 		},
 		bindings: {
-			omleidingsRoutes: '<'
+			omleidingsRoutes: '<',
+			isValidBinding: '&'
 		},
 		controllerAs: 'omleidingsRoutesController'
 	});
