@@ -2,6 +2,18 @@
     <button ng-click="omleidingsRoutesController.addRoute()">Route toevoegen</button>
 	<button ng-click="omleidingsRoutesController.addDRPT(omleidingsRoutesController.route.index)" ng-disabled="omleidingsRoutesController.route.index < 0" >Nieuw DRPT</button>
     <table>
+		<colgroup>
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 5%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 10%;">
+		 </colgroup>
         <thead>
             <tr>
 				<!-- select radio -->
@@ -30,7 +42,7 @@
 						name="omleidingsroute-radio">
 
                 </td>
-                <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
+                <td style="vertical-align:top;" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
 					<input name="pad_{{$parent.$parent.$index}}{{$index}}" id="pad_{{$parent.$parent.$index}}{{$index}}" ng-model="omleidingsRoute.padindicator" type="checkbox">
                 </td>
                 <td style="vertical-align:top" ng-if="$index===0" rowspan="{{omleidingsRoute.omleidactiviteiten.length}}">
@@ -91,6 +103,41 @@
 						name="up_{{$parent.$index}}{{$index}}"
 						ng-click="omleidingsRoutesController.deleteDRPG($parent.$index, $index)">&#10006;</span>
 						<!-- &#9747; -->
+                </td>
+
+            </tr>
+			<tr>
+                <td>
+
+                </td>
+                <td >
+
+                </td>
+                <td >
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+					<span style="cursor: pointer;"
+					ng-click="omleidingsRoutesController.test($index)">&#10010; Voeg Drgp toe</span>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+				<td>
+
                 </td>
 
             </tr>

@@ -116,7 +116,7 @@ angular.module('phoneList').
 				});
 				this.route.index = l - 1;
 			};
-
+			this.test = index => console.log(index);
 			this.addDRPT = (index) => {
 				const maxNo = this.goederenTreinRoutes[index].omleidactiviteiten.reduce((acc, cur) => {
 					acc = cur.volgnummer > acc ? cur.volgnummer : acc;
