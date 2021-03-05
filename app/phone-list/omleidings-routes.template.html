@@ -1,17 +1,18 @@
-<form name="omleidingsRoutesController.omleidingsRouteForm" ng-submit="omleidingsRoutesController.submitForm()" novalidate>
+<form name="omleidingsRoutesController.omleidingsRouteForm" novalidate>
+	<button type="submit" style="display: none;" />
     <button ng-click="omleidingsRoutesController.addRoute()">Route toevoegen</button>
 	<button ng-click="omleidingsRoutesController.addDRPT(omleidingsRoutesController.route.index)" ng-disabled="omleidingsRoutesController.route.index < 0" >Nieuw DRPT</button>
     <table>
 		<colgroup>
-			<col span="1" style="width: 10%;">
-			<col span="1" style="width: 10%;">
-			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 5%;">
+			<col span="1" style="width: 5%;">
+			<col span="1" style="width: 5%;">
+			<col span="1" style="width: 1%;">
+			<col span="1" style="width: 15%;">
 			<col span="1" style="width: 5%;">
 			<col span="1" style="width: 10%;">
 			<col span="1" style="width: 10%;">
-			<col span="1" style="width: 10%;">
-			<col span="1" style="width: 10%;">
-			<col span="1" style="width: 10%;">
+			<col span="1" style="width: 40%;">
 			<col span="1" style="width: 10%;">
 		 </colgroup>
         <thead>
@@ -52,20 +53,25 @@
                     {{omleidActiviteit.volgnummer}}
                 </td>
                 <td>
-                    <input style="width: 50px" ng-model="omleidActiviteit.dienstregelpuntCode" type="text" required></input>
+                    <input ng-model="omleidActiviteit.dienstregelpuntCode" type="text" required></input>
                 </td>
                 <td>
-					<select name="act_{{$parent.$index}}{{$index}}" id="act_{{$parent.$index}}{{$index}}" ng-model="omleidActiviteit.activiteitSoort">
+					<input list="testList" type="text" name="act_{{$parent.$index}}-{{$index}}" ng-model="omleidActiviteit.activiteitSoort"
+						ng-change="omleidingsRoutesController.testChanged(omleidActiviteit.activiteitSoort, 'act_{{$parent.$index}}-{{$index}}')"/>
+					<datalist id="testList">
+						<option ng-repeat="car in omleidingsRoutesController.mycars" value="{{car.value}} ({{car.name}})"></option>
+					</datalist>
+					<!-- <select name="act_{{$parent.$index}}{{$index}}" id="act_{{$parent.$index}}{{$index}}" ng-model="omleidActiviteit.activiteitSoort">
 						<option value="A">A</option>
 						<option value="V">V</option>
 						<option value="D">D</option>
-					  </select>
+					  </select> -->
                 </td>
                 <td>
                     <input
 						id="bupTijd_{{$parent.$index}}{{$index}}"
                         name="bupTijd_{{$parent.$index}}{{$index}}"
-						style="width: 40px"
+
 						ng-change="omleidingsRoutesController.checkBupTijd(omleidActiviteit.bupTijd, 'bupTijd_{{$parent.$index}}{{$index}}')"
 						ng-model="omleidActiviteit.bupTijd"
 						type="text"
@@ -75,16 +81,16 @@
                     <input
 						id="spoor_{{$parent.$index}}{{$index}}"
                         name="spoor_{{$parent.$index}}{{$index}}"
-						style="width: 40px"
+
 						ng-change="omleidingsRoutesController.checkBupTijd(omleidActiviteit.spoor, 'spoor_{{$parent.$index}}{{$index}}')"
 						ng-model="omleidActiviteit.spoor"
 						type="text"></input>
                 </td>
                 <td>
-					<input
+					<input style="width:98%;"
 					id="via_{{$parent.$index}}{{$index}}"
 					name="via_{{$parent.$index}}{{$index}}"
-					style="width: 80px"
+
 					ng-change="omleidingsRoutesController.checkBupTijd(omleidActiviteit.via, 'via_{{$parent.$index}}{{$index}}')"
 					ng-model="omleidActiviteit.via"
 					type="text"></input>
@@ -107,44 +113,19 @@
 
             </tr>
 			<tr>
-                <td>
-
-                </td>
-                <td >
-
-                </td>
-                <td >
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-					<span style="cursor: pointer;"
-					ng-click="omleidingsRoutesController.test($index)">&#10010; Voeg Drgp toe</span>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <td>
-
-                </td>
+				<!-- this is the add-drgp row, add it once per route &#10010; -->
+                <td></td><td></td><td></td><td></td>
 				<td>
-
+					<span ng-click="omleidingsRoutesController.test($index)" style="cursor: pointer;">
+						<i class="fa fa-plus-circle"></i> Voeg Drgp toe
+					</span>
                 </td>
-
+                <td></td><td></td><td></td><td></td><td></td>
             </tr>
         </tbody>
     </table>
-    <button type="submit"
-	ng-click="omleidingsRoutesController.save()"
+	<div>{{omleidingsRoutesController.myValue}}</div>
+    <button ng-click="omleidingsRoutesController.save()"
 	ng-disabled="omleidingsRoutesController.omleidingsRouteForm.$invalid">Opslaan</button>
 </form>
 <button ng-click="omleidingsRoutesController.checkIt()">check</button>

@@ -6,6 +6,7 @@
   "repository": "https://github.com/angular/angular-phonecat",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "angular": "1.8.x",
     "angular-animate": "1.8.x",
     "angular-resource": "1.8.x",
